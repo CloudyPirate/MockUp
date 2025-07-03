@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriverMockup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white-100 text-black-800 scroll-smooth">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center p-4">
+            <h1 class="text-2xl font-bold text-[#41B6E6]">Your Logo Here</h1>
+            <div class="space-x-4">
+                <a href="#about" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">About Us</a>
+                <a href="#scheduling" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">Private Driver</a>
+                <a href="#pricing" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">Pricing</a>
+                <a href="#contact" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+  <section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('./static/header.jpg');">
+        <!-- Overlay for better text readability -->
+        <div class="absolute inset-0 bg-black opacity-35"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center text-white">
+            <!-- Bold Header -->
+            <body class="flex items-center justify-center h-screen bg-gray-900 text-white">
+                <div class="text-center">
+                    <h1 class="text-5xl md:text-7xl font-semibold mb-8">Enjoy Chicago on Your Time</h1>
+                    <div id="countdown" class="text-3xl font-mono bg-grey-800 p-20 rounded-lg "></div>
+                </div>
+
+
+            <!-- Buttons -->
+            <div class="space-x-4">
+                <a href="#about" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">About Us</a>
+                <a href="#scheduling" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">Private Driver</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold mb-4">About Us</h2>
+            <p class="max-w-2xl mx-auto text-gray-600">We are committed to providing convenient, affordable, and safe driver scheduling. Whether for personal trips, events, or business, we have you covered.</p>
+        </div>
+    </section>
+
+    <!-- Scheduling Section -->
+    <section id="scheduling" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold mb-8">Schedule a Driver</h2>
+            <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-6">
+                <div>
+                    <label class="block text-left mb-2 font-medium">Full Name</label>
+                    <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter your name">
+                </div>
+                <div>
+                    <label class="block text-left mb-2 font-medium">Pickup Location</label>
+                    <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter pickup location">
+                </div>
+                <div>
+                    <label class="block text-left mb-2 font-medium">Drop-off Location</label>
+                    <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter drop-off location">
+                </div>
+                <div>
+                    <label class="block text-left mb-2 font-medium">Date & Time</label>
+                    <input type="datetime-local" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <button type="submit" class="w-full bg-white-600 text-white py-2 rounded hover:bg-[#41B6E6]">Schedule Now</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold mb-8">Pricing</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Basic</h3>
+                    <p class="text-4xl font-bold mb-4">Example Service #1</p>
+                    <ul class="mb-6 text-gray-600 space-y-2">
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                    </ul>
+                    <button class="bg-black-600 text-black py-2 px-4 rounded hover:bg-[#41B6E6]">Select</button>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Standard</h3>
+                    <p class="text-4xl font-bold mb-4">Example Service #2</p>
+                    <ul class="mb-6 text-gray-600 space-y-2">
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                    </ul>
+                    <button class="bg-black-600 text-black py-2 px-4 rounded hover:bg-[#41B6E6]">Select</button>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg">
+                    <h3 class="text-2xl font-bold mb-4">Premium</h3>
+                    <p class="text-4xl font-bold mb-4">Example Service #3</p>
+                    <ul class="mb-6 text-gray-600 space-y-2">
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                        <li>lorem ipsum</li>
+                    </ul>
+                    <button class="bg-black-600 text-black py-2 px-4 rounded hover:bg-[#41B6E6]">Select</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-semibold mb-4">Contact Us</h2>
+            <p class="mb-8 text-gray-600 max-w-2xl mx-auto">Have questions? Get in touch with us for more information or assistance with scheduling.</p>
+            <a href="" class="bg-[#41B6E6] text-white py-3 px-6 rounded hover:bg-[#41B6E6]">Email Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white text-center py-4">
+        <p class="text-gray-600">&copy; InserYourLLCNameHere. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
