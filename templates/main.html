@@ -1,138 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DriverMockup</title>
+    <title>Personal Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
-<body class="bg-white-100 text-black-800 scroll-smooth">
+<body class="bg-white text-gray-800 scroll-smooth">
 
     <!-- Navbar -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex justify-between items-center p-4">
-            <h1 class="text-2xl font-bold text-[#41B6E6]">Your Logo Here</h1>
-            <div class="space-x-4">
-                <a href="#about" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">About Us</a>
-                <a href="#scheduling" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">Private Driver</a>
-                <a href="#pricing" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">Pricing</a>
-                <a href="#contact" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">Contact Us</a>
-            </div>
+    <nav class="flex justify-between items-center py-6 px-10 bg-gray-900 text-white fixed w-full top-0 z-50 shadow-lg">
+        <div class="text-2xl font-bold">Juan Fernando Bohorquez</div>
+        <div class="space-x-6">
+            <a href="#home" class="hover:text-gray-400">Home</a>
+            <a href="#about" class="hover:text-gray-400">About</a>
+            <a href="#projects" class="hover:text-gray-400">Projects</a>
+            <a href="#contact" class="hover:text-gray-400">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-  <section class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('./static/header.jpg');">
-        <!-- Overlay for better text readability -->
-        <div class="absolute inset-0 bg-black opacity-35"></div>
+<!-- Hero Section with Cycling Background -->
+<section id="home" class="relative min-h-screen flex items-center justify-center text-center text-white overflow-hidden">
 
-        <!-- Content -->
-        <div class="relative z-10 text-center text-white">
-            <!-- Bold Header -->
-            <body class="flex items-center justify-center h-screen bg-gray-900 text-white">
-                <div class="text-center">
-                    <h1 class="text-5xl md:text-7xl font-semibold mb-8">Enjoy Chicago on Your Time</h1>
-                    <div id="countdown" class="text-3xl font-mono bg-grey-800 p-20 rounded-lg "></div>
-                </div>
+    <!-- Background Image -->
+    <div id="cyclingBackground" class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out opacity-100"></div>
 
+    <!-- Dark Overlay for Contrast -->
+    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
 
-            <!-- Buttons -->
-            <div class="space-x-4">
-                <a href="#about" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">About Us</a>
-                <a href="#scheduling" class="bg-white hover:bg-[#41B6E6] text-black font-semibold hover:text-black py-3 px-6 rounded-lg transition duration-300">Private Driver</a>
+    <!-- Text Content -->
+    <div class="relative z-10">
+        <h1 class="text-5xl font-bold mb-4 flex flex-wrap justify-center">
+            Hi, I'm Juan, Your 
+            <span id="cyclingText" class="ml-3 transition-opacity duration-700 ease-in-out opacity-100">Web Developer</span>
+        </h1>
+        <a href="#projects" class="mt-8 inline-block bg-white text-gray-900 px-6 py-3 rounded-full hover:bg-gray-200 transition">View My Work</a>
+    </div>
+
+</section>
+
+<script>
+    const texts = ["Web-Developer", "UI/UX Designer", "CS2 Coach", "Lacrosse Coach"];
+    const images =[
+        "static/header.jpg",
+        "static/header2.jpg",
+        "static/header3.jpg",
+        "static/header4.jpg",
+    ];
+
+    let index = 0;
+    const cyclingText = document.getElementById('cyclingText');
+    const cyclingBackground = document.getElementById('cyclingBackground');
+
+    // Set initial background
+    cyclingBackground.style.backgroundImage = `url('${images[0]}')`;
+
+    const cycle = () => {
+        // Start fade out for both
+        cyclingText.classList.replace('opacity-100', 'opacity-0');
+        cyclingBackground.classList.replace('opacity-100', 'opacity-0');
+
+        // Wait for fade out to complete
+        setTimeout(() => {
+            // Move to next index
+            index = (index + 1) % texts.length;
+
+            // Update text and background
+            cyclingText.textContent = texts[index];
+            cyclingBackground.style.backgroundImage = `url('${images[index]}')`;
+
+            // Fade them back in simultaneously
+            cyclingText.classList.replace('opacity-0', 'opacity-100');
+            cyclingBackground.classList.replace('opacity-0', 'opacity-100');
+
+        }, 700); // Matches the fade-out duration
+    };
+
+    // Start cycling
+    setInterval(cycle, 5000); // Every 4 seconds, including fade time
+</script>
+
+</body>
+</html>
+  <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
+            <div class="max-w-3xl mx-auto text-center text-gray-700 text-lg leading-relaxed">
+                <p>I am a creative developer with a passion for building intuitive, dynamic user experiences. I specialize in modern web technologies and love bringing ideas to life in the browser. When I am allowed to touch grass you will find me playing lacrosse or counter-strike 2!</p>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-semibold mb-4">About Us</h2>
-            <p class="max-w-2xl mx-auto text-gray-600">We are committed to providing convenient, affordable, and safe driver scheduling. Whether for personal trips, events, or business, we have you covered.</p>
+
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Experience</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Project Card -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+                    <h3 class="text-2xl font-semibold mb-2">Esports</h3>
+                    <p class="text-gray-600 mb-4">This is the link to the different work experience I have in the field, on top of my personal endevors as a player!</p>
+                    <a a href="/esports" class="text-blue-600 hover:underline">Learn More</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+                    <h3 class="text-2xl font-semibold mb-2">Lacrosse</h3>
+                    <p class="text-gray-600 mb-4">This is a link to the different clubs/teams that I have been on as well as a little insight into the non-profits that I am a part of!</p>
+                    <a href="/lacrosse" class="text-blue-600 hover:underline">Learn More</a>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-xl transition">
+                    <h3 class="text-2xl font-semibold mb-2">Web-development & Programming Projects</h3>
+                    <p class="text-gray-600 mb-4">This is going to redirect you to the contract work and experience that I have.</p>
+                    <a href="/programming" class="text-blue-600 hover:underline">Learn More</a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Scheduling Section -->
-    <section id="scheduling" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-semibold mb-8">Schedule a Driver</h2>
-            <form class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md space-y-6">
-                <div>
-                    <label class="block text-left mb-2 font-medium">Full Name</label>
-                    <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter your name">
-                </div>
-                <div>
-                    <label class="block text-left mb-2 font-medium">Pickup Location</label>
-                    <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter pickup location">
-                </div>
-                <div>
-                    <label class="block text-left mb-2 font-medium">Drop-off Location</label>
-                    <input type="text" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Enter drop-off location">
-                </div>
-                <div>
-                    <label class="block text-left mb-2 font-medium">Date & Time</label>
-                    <input type="datetime-local" class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600">
-                </div>
-                <button type="submit" class="w-full bg-white-600 text-white py-2 rounded hover:bg-[#41B6E6]">Schedule Now</button>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-8">
+            <h2 class="text-4xl font-bold text-center mb-12">Contact Me</h2>
+            <form class="max-w-xl mx-auto space-y-6">
+                <input type="text" placeholder="Your Name" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900">
+                <input type="email" placeholder="Your Email" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900">
+                <textarea placeholder="Your Message" rows="5" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900"></textarea>
+                <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-700 transition">Send Message</button>
             </form>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-16 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-semibold mb-8">Pricing</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4">Basic</h3>
-                    <p class="text-4xl font-bold mb-4">Example Service #1</p>
-                    <ul class="mb-6 text-gray-600 space-y-2">
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                    </ul>
-                    <button class="bg-black-600 text-black py-2 px-4 rounded hover:bg-[#41B6E6]">Select</button>
-                </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4">Standard</h3>
-                    <p class="text-4xl font-bold mb-4">Example Service #2</p>
-                    <ul class="mb-6 text-gray-600 space-y-2">
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                    </ul>
-                    <button class="bg-black-600 text-black py-2 px-4 rounded hover:bg-[#41B6E6]">Select</button>
-                </div>
-                <div class="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg">
-                    <h3 class="text-2xl font-bold mb-4">Premium</h3>
-                    <p class="text-4xl font-bold mb-4">Example Service #3</p>
-                    <ul class="mb-6 text-gray-600 space-y-2">
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                        <li>lorem ipsum</li>
-                    </ul>
-                    <button class="bg-black-600 text-black py-2 px-4 rounded hover:bg-[#41B6E6]">Select</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Us Section -->
-    <section id="contact" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-semibold mb-4">Contact Us</h2>
-            <p class="mb-8 text-gray-600 max-w-2xl mx-auto">Have questions? Get in touch with us for more information or assistance with scheduling.</p>
-            <a href="" class="bg-[#41B6E6] text-white py-3 px-6 rounded hover:bg-[#41B6E6]">Email Us</a>
-        </div>
-    </section>
-
     <!-- Footer -->
-    <footer class="bg-white text-center py-4">
-        <p class="text-gray-600">&copy; InserYourLLCNameHere. All rights reserved.</p>
+    <footer class="py-6 bg-gray-900 text-center text-white">
+        © 2025 Juan Fernando Bohorquez. All rights reserved.
     </footer>
 
 </body>
-
 </html>
